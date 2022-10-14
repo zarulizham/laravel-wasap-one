@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace ZarulIzham\WasapOne\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class WasapOneCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-wasap-one';
 
     public $description = 'My command';
 

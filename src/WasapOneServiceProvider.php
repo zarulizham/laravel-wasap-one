@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace ZarulIzham\WasapOne;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use ZarulIzham\WasapOne\Commands\WasapOneCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class WasapOneServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('laravel-wasap-one')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_laravel-wasap-one_table')
+            ->hasCommand(WasapOneCommand::class);
     }
 }
