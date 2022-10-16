@@ -81,6 +81,7 @@ class WasapOne
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
         }
+
         return $this;
     }
 
@@ -91,10 +92,12 @@ class WasapOne
         try {
             $this->response = Http::connectTimeout(15)
                 ->withToken(config('wasap-one.token'))->get($url);
+
             return $this->response->json();
         } catch (\Throwable $th) {
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
+
             return false;
         }
     }

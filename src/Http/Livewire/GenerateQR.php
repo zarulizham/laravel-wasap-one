@@ -3,8 +3,8 @@
 namespace ZarulIzham\WasapOne\Http\Livewire;
 
 use Livewire\Component;
-use ZarulIzham\WasapOne\Facades\WasapOne;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use ZarulIzham\WasapOne\Facades\WasapOne;
 
 class GenerateQR extends Component
 {
