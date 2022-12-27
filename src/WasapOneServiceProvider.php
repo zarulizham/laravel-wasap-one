@@ -5,6 +5,7 @@ namespace ZarulIzham\WasapOne;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use ZarulIzham\WasapOne\Commands\WasapOneCommand;
 use ZarulIzham\WasapOne\Http\Livewire\GenerateQR;
 
 class WasapOneServiceProvider extends PackageServiceProvider
@@ -30,6 +31,6 @@ class WasapOneServiceProvider extends PackageServiceProvider
             ->hasConfigFile('wasap-one')
             ->hasViews('wasap-one');
 
-        $this->loadViewsFrom(__DIR__. '/../resources/views/', 'wasap-one');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'wasap-one');
     }
 }
