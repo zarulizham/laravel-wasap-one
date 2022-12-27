@@ -1,5 +1,7 @@
 <div>
-    @if ($response['data']['state'] == 'CONNECTED')
+    @if ($response['data'] == null)
+        <div>WasapONE having issues. Please contact support.</div>
+    @elseif ($response['data']['state'] == 'CONNECTED')
         <div>
             @if (isset($response['data']['info']) && isset($response['data']['info']['pushname']))
                 Hello <strong>{{ $response['data']['info']['pushname'] }}</strong>, you are on <strong>{{ $response['data']['info']['platform'] }}</strong>
