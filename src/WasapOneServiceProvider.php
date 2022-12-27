@@ -5,7 +5,6 @@ namespace ZarulIzham\WasapOne;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ZarulIzham\WasapOne\Commands\WasapOneCommand;
 use ZarulIzham\WasapOne\Http\Livewire\GenerateQR;
 
 class WasapOneServiceProvider extends PackageServiceProvider
