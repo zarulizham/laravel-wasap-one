@@ -1,5 +1,5 @@
 <div>
-    @if ($response['data'] == null)
+    @if ($response == null || $response['data'] == null)
         <div>WasapONE having issues. Please contact support.</div>
     @elseif ($response['data']['state'] == 'CONNECTED')
         <div>

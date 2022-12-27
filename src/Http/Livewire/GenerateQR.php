@@ -12,7 +12,7 @@ class GenerateQR extends Component
     {
         $response = WasapOne::getQr()->json();
 
-        if ($response == null || ['data'] == null) {
+        if ($response == null || $response['data'] == null) {
             $qr = 'WasapONE having issues. Please contact support.';
         } elseif (! $response['data']['qr_string']) {
             $qr = 'Please refresh to get QR';
