@@ -14,14 +14,14 @@ class WasapOne
 
     public function sendMessage($message, $chatId, $isGroup = false)
     {
-        $url = config('wasap-one.url').'/send-message';
+        $url = config('wasap-one.url') . '/send-message';
         try {
             $this->response = Http::connectTimeout(15)
                 ->withToken(config('wasap-one.token'))->post($url, [
-                    'chat_id' => $chatId,
-                    'message' => $message,
-                    'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
-                ]);
+                        'chat_id' => $chatId,
+                        'message' => $message,
+                        'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
+                    ]);
         } catch (\Throwable $th) {
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
@@ -32,16 +32,16 @@ class WasapOne
 
     public function sendImage($imageUrl, $message, $chatId, $isGroup = false)
     {
-        $url = config('wasap-one.url').'/send-message';
+        $url = config('wasap-one.url') . '/send-message';
         try {
             $this->response = Http::connectTimeout(15)
                 ->withToken(config('wasap-one.token'))->post($url, [
-                    'chat_id' => $chatId,
-                    'url' => $imageUrl,
-                    'message' => $message,
-                    'type' => 2,
-                    'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
-                ]);
+                        'chat_id' => $chatId,
+                        'url' => $imageUrl,
+                        'message' => $message,
+                        'type' => 2,
+                        'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
+                    ]);
         } catch (\Throwable $th) {
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
@@ -52,16 +52,16 @@ class WasapOne
 
     public function sendButton($buttonBody, array $buttons, $chatId, $isGroup = false)
     {
-        $url = config('wasap-one.url').'/send-button';
+        $url = config('wasap-one.url') . '/send-button';
 
         try {
             $this->response = Http::connectTimeout(15)
                 ->withToken(config('wasap-one.token'))->post($url, [
-                    'chat_id' => $chatId,
-                    'message' => $buttonBody,
-                    'buttons' => $buttons,
-                    'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
-                ]);
+                        'chat_id' => $chatId,
+                        'message' => $buttonBody,
+                        'buttons' => $buttons,
+                        'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
+                    ]);
         } catch (\Throwable $th) {
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
@@ -72,7 +72,22 @@ class WasapOne
 
     public function getQr()
     {
-        $url = config('wasap-one.url').'/qr';
+        $url = config('wasap-one.url') . '/qr';
+
+        try {
+            $this->response = Http::connectTimeout(15)
+                ->withToken(config('wasap-one.token'))->get($url);
+        } catch (\Throwable $th) {
+            $this->errorCode = 500;
+            $this->errorMessage = $th->getMessage();
+        }
+
+        return $this;
+    }
+
+    public function restartServer()
+    {
+        $url = config('wasap-one.url') . "/servers/restart";
 
         try {
             $this->response = Http::connectTimeout(15)
@@ -87,7 +102,7 @@ class WasapOne
 
     public function isRegistered($phoneNumber)
     {
-        $url = config('wasap-one.url')."/chats/$phoneNumber/is-registered";
+        $url = config('wasap-one.url') . "/chats/$phoneNumber/is-registered";
 
         try {
             $this->response = Http::connectTimeout(15)

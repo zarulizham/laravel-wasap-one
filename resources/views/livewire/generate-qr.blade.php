@@ -1,4 +1,9 @@
 <div>
+    @if (session()->has('success'))
+        <div class="alert bg-success">
+            {{ session('success') }}
+        </div>
+    @endif
     @if ($response == null || $response['data'] == null)
         <div>WasapONE having issues. Please contact support.</div>
     @elseif ($response['data']['state'] == 'CONNECTED')
@@ -15,10 +20,7 @@
             {!! $qr !!}
 
             @if (!$response['data']['qr_string'])
-                <form action="{{ route('servers.restart', auth()->user()->server) }}" method="post">
-                    @csrf
-                    <button class="btn btn-danger">Restart API Client</button>
-                </form>
+                <button class="btn btn-danger" wire:click="restartServer">Restart API Client</button>
             @endif
         </div>
     @endif
