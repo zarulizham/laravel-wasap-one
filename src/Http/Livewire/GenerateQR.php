@@ -14,7 +14,7 @@ class GenerateQR extends Component
 
         if ($response == null || $response['data'] == null) {
             $qr = 'WasapONE having issues. Please contact support.';
-        } elseif (! $response['data']['qr_string']) {
+        } elseif (!$response['data']['qr_string']) {
             $qr = 'Please refresh to get QR';
         } else {
             $qr = QrCode::size(200)
@@ -25,5 +25,12 @@ class GenerateQR extends Component
         }
 
         return view('wasap-one::livewire.generate-qr', compact('qr', 'response'));
+    }
+
+    public function restartServer()
+    {
+        WasapOne::restartServer();
+
+        session()->flash('sucess', 'Server will be restart and try again in 30 seconds');
     }
 }
