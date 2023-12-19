@@ -17,6 +17,9 @@ class WasapOne
         $url = config('wasap-one.url').'/send-message';
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->post($url, [
                     'chat_id' => $chatId,
                     'message' => $message,
@@ -35,6 +38,9 @@ class WasapOne
         $url = config('wasap-one.url').'/send-message';
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->post($url, [
                     'chat_id' => $chatId,
                     'url' => $imageUrl,
@@ -56,6 +62,9 @@ class WasapOne
 
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->post($url, [
                     'chat_id' => $chatId,
                     'message' => $buttonBody,
@@ -76,6 +85,9 @@ class WasapOne
 
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->get($url);
         } catch (\Throwable $th) {
             $this->errorCode = 500;
@@ -91,6 +103,9 @@ class WasapOne
 
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->get($url);
 
             return $this->response->json();
