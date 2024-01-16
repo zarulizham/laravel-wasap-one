@@ -8,15 +8,17 @@
     ],
     "homepage": "https://github.com/zarulizham/laravel-wasap-one",
     "license": "MIT",
-    "authors": [{
-        "name": "Zarul Zubir",
-        "email": "zarul.izham@gmail.com",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Zarul Zubir",
+            "email": "zarul.izham@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "illuminate/contracts": "^9.0|^10.0",
-        "livewire/livewire": "^2.10",
+        "livewire/livewire": "^3.0",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-package-tools": "^1.13.0"
     },
