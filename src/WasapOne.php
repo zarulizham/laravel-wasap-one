@@ -56,7 +56,7 @@ class WasapOne
         return $this;
     }
 
-    public function sendMedia($mediaUrl, $message, $chatId, $isGroup = false)
+    public function sendMedia($mediaUrl, $message, $chatId, $isGroup = false, $filename = null)
     {
         $url = config('wasap-one.url').'/send-media';
         try {
@@ -68,6 +68,7 @@ class WasapOne
                     'chat_id' => $chatId,
                     'url' => $mediaUrl,
                     'message' => $message,
+                    'filename' => $filename ?? $message,
                     'is_group' => filter_var($isGroup, FILTER_VALIDATE_BOOLEAN),
                 ]);
         } catch (\Throwable $th) {
