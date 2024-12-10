@@ -146,7 +146,7 @@ class WasapOne
                 ])
                 ->withToken(config('wasap-one.token'))->get($url);
 
-            return $this->response->json();
+            return $this->response->json()['is_registered'];
         } catch (\Throwable $th) {
             $this->errorCode = 500;
             $this->errorMessage = $th->getMessage();
