@@ -13,6 +13,7 @@ For env values:
 ```
 WASAP_ONE_TOKEN=
 WASAP_ONE_DEBUG=true
+WASAP_ONE_SERVER_ID=
 ```
 
 ## Changelog
