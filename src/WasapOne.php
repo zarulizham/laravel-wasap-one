@@ -108,6 +108,9 @@ class WasapOne
 
         try {
             $this->response = Http::connectTimeout(15)
+                ->withHeaders([
+                    'Server-ID' => config('wasap-one.server_id'),
+                ])
                 ->withToken(config('wasap-one.token'))->get($url);
         } catch (\Throwable $th) {
             $this->errorCode = 500;
