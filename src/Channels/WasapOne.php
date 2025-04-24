@@ -10,13 +10,14 @@ class WasapOne
 {
     public function send($notifiable, Notification $notification)
     {
-        $message = $notification->toWhatsApp($notifiable);
+        $data = $notification->toWhatsApp($notifiable);
 
-        if (is_array($message)) {
-            $message = $message['message'];
-            $isGroup = $message['is_group'] ?? false;
+        if (is_array($data)) {
+            $message = $data['message'];
+            $isGroup = $data['is_group'] ?? false;
         } else {
             $isGroup = false;
+            $message = $data;
         }
 
         if ($notifiable instanceof AnonymousNotifiable) {
